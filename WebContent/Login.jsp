@@ -15,7 +15,7 @@
 	<body>
 	<h2>Welcome to Buy Me</h2>
 	<p>please log in!</p>
-	<form method="get" name="frm1" action="LoginProcess.jsp" >
+	<form name="frm1" action="LoginProcess.jsp" >
 		<table>
 		<tr>
 		<td>
@@ -37,7 +37,7 @@
 		</tr>
 		<tr>
 		<td>
-		</select>&nbsp;<br> <input type="submit" value="Login" onclick="checkAndSubmit()"> 
+		</select>&nbsp;<br> <input type="submit" value="Login"> 
 		</td>
 		</tr>
 		</table>		

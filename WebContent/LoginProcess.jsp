@@ -12,6 +12,9 @@
 <body>
 	<%
 		List<String> list = new ArrayList<String>();
+		HttpSession mySession = request.getSession();
+		session.setAttribute("isCRep", false);
+		session.setAttribute("isAdmin", false);
 
 		try {
 
@@ -37,8 +40,9 @@
 
 			//if there is a user then create a session for him 
 			if (result.next()) {
-				//TO DO: create the session for the user
-				out.print("User: " + result.getString("username") + " logged in.");
+				session.setAttribute("username", result.getString("username"));
+				response.sendRedirect("HomePage.jsp");
+				
 			//no user found in the user table... search the admin table
 			} else {
 				//do the same thing as above but through the admin users.
@@ -61,8 +65,20 @@
 
 					//the data was that of an admin. Create a session for them with the proper credentials (isAdmin)
 					if (adminResult.next()) {
-						out.print("User: " + adminResult.getString("username") + " logged in. They are an admin.");
+						if(adminResult.getBoolean("isAdmin")){
+							
+							session.setAttribute("isAdmin", true);
+							session.setAttribute("username", result.getString("username"));
+							response.sendRedirect("HomePage.jsp");
+						}
+						else{
+							session.setAttribute("isCRep", true);
+							session.setAttribute("username", result.getString("username"));
+							response.sendRedirect("HomePage.jsp");
+						}
+							
 					}
+					
 					//there was no user nor admin with those credentials. Take them to a logout screen.
 					else {
 						out.print("invalid credentials. Please try again");

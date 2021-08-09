@@ -21,7 +21,7 @@
 		Statement stmt = con.createStatement();
 
 		//Make an insert statement for the Sells table:
-		String signUpQuery = "INSERT INTO users(Username, Password, Email, Address, CreditCard) "
+		String signUpQuery = "INSERT INTO user(username, password, email, address, Credit_card) "
 				+ " VALUES (?, ?, ?, ?, ?)";
 		
 		//Create a Prepared SQL statement allowing you to introduce the parameters of the query
