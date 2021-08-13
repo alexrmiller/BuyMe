@@ -36,11 +36,12 @@
 			ResultSet result = ps.executeQuery();
 			
 			if(result.next()){
+				session.setAttribute(result.getString("Username"), userid);
 				if(result.getBoolean("isAdmin")){
-				out.print("User: " + result.getString("Username") + " logged in. They are an admin.");
+				out.print("User: " + userid + " logged in. They are an admin.");
 				}
 				else{
-				out.print("User: " + result.getString("Username") + " logged in. They are not an admin.");	
+				out.print("User: " + userid + " logged in. They are not an admin.");	
 				}
 			}
 			else{
