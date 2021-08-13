@@ -78,6 +78,16 @@
 		</table>
 		</form>
 		
+		<form action="DeleteUser.jsp">
+		<table>
+		<tr>
+		<td>
+		</select>&nbsp;<br> <input type="submit" value="Delete Users"> 	
+		</td>
+		</tr>
+		</table>
+		</form>
+		
 		<form method="get" name="View" action="ViewAdminMessages.jsp">
 		<table>
 		<tr>
@@ -87,7 +97,6 @@
 		</tr>
 		</table>
 		</form>
-		
 		
 		<form  method="get" name="ChangePass" action="ChangePassword.jsp">
 		<table>

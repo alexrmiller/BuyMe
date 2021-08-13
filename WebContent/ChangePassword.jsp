@@ -71,16 +71,6 @@
 	</tr>
 	</table>
 	</form>	
-	
-	<form method="post" action="DeleteUser.jsp">
-	<table>
-	<tr>
-	<td>
-	</select>&nbsp;<input type="submit" value="Delete User">
-	</td>
-	</tr>
-	</table>
-	</form>
 
 </body>
 </html>
