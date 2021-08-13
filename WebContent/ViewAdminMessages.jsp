@@ -24,28 +24,37 @@
 			Statement stmt = con.createStatement();
 
 			//Make a SELECT query from the users table using the inputted username and password
-			String NotificationQuery = "select notification, usernotifications.username from usernotifications, user where user.username = usernotifications.username and user.username = ?";
-
+			String AdminComplaintsQuery = "select complaint,idcomplaint,username from admincomplaints";
 			//Create a Prepared SQL statement allowing you to introduce the parameters of the query
-			PreparedStatement ps = con.prepareStatement(NotificationQuery);
-
-			//Add parameters of the query. Start with 1, the 0-parameter is the INSERT statement itself
-			ps.setString(1, (String)session.getAttribute("username"));
+			PreparedStatement ps = con.prepareStatement(AdminComplaintsQuery);
 
 			//Run the query against the database.
 			ResultSet result = ps.executeQuery();
 			%>
 			<table>
+			<form action="AdminMessage.jsp">
 			<%while(result.next()){
 				%>
 				<tr>
+				<td><b>
+				<%out.print(result.getString("username"));%>'s complaint :
+				</b>
+				</td>
 				<td>
-				<%out.print(result.getString("notification"));%>
+				</td>
+				<td>
+				<%out.print(result.getString("complaint"));%>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				</select>&nbsp;<input type="submit" value="Respond">
 				</td>
 				</tr>
 				<%
 			}
 			%>
+			</form>
 			</table>
 			<%
 } catch (Exception e) {

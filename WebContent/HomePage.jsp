@@ -78,7 +78,7 @@
 		</table>
 		</form>
 		
-		<form method="get" name="View" action="ViewMessages.jsp">
+		<form method="get" name="View" action="ViewAdminMessages.jsp">
 		<table>
 		<tr>
 		<td>
@@ -93,7 +93,7 @@
 		<table>
 		<tr>
 		<td>
-		</select>&nbsp;<br> <input type="submit" value="Change a password"> 
+		</select>&nbsp;<br> <input type="submit" value="Update User Information"> 
 		</td>
 		</tr>
 		</table>

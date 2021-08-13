@@ -3,57 +3,62 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Notifications</title>
-
+<title>Insert title here</title>
 </head>
-
 <body>
-	<h2>Notifications</h2>
+	<%
+		List<String> list = new ArrayList<String>();
+		HttpSession mySession = request.getSession();
 
-	<%	
-		try{
+		try {
+
+			//Get the database connection
 			ApplicationDB db = new ApplicationDB();
 			Connection con = db.getConnection();
 
 			//Create a SQL statement to see if credentials is a normal user
-			Statement stmt = con.createStatement();
+			Statement InsertComplaintstmt = con.createStatement();
 
 			//Make a SELECT query from the users table using the inputted username and password
-			String NotificationQuery = "select notification, usernotifications.username from usernotifications, user where user.username = usernotifications.username and user.username = ?";
+			String InsertComplaintQuery = "Insert into admincomplaints (complaint,username) values (?,?)";
 
 			//Create a Prepared SQL statement allowing you to introduce the parameters of the query
-			PreparedStatement ps = con.prepareStatement(NotificationQuery);
+			PreparedStatement ps = con.prepareStatement(InsertComplaintQuery);
 
 			//Add parameters of the query. Start with 1, the 0-parameter is the INSERT statement itself
-			ps.setString(1, (String)session.getAttribute("username"));
+			ps.setString(1, request.getParameter("Question"));
+			ps.setString(2, (String)session.getAttribute("username"));
 
 			//Run the query against the database.
-			ResultSet result = ps.executeQuery();
-			%>
-			<table>
-			<%while(result.next()){
+			ps.execute();
 				%>
-				<tr>
-				<td>
-				<%out.print(result.getString("notification"));%>
-				</td>
-				</tr>
-				<%
-			}
-			%>
-			</table>
-			<%
-} catch (Exception e) {
-	out.print(e);
-	out.print("selection failed :()");
-}
-	%>
-	
+				<form action="HomePage.jsp">
+	<table>
+	<tr>
+	<td>
+	Message Sent
+	</td>
+	</tr>
+	<tr>
+	<td>
+	</select>&nbsp;<input type="submit" value="Back to Homepage"> 
+		</td>
+	</tr>
+	</table>
+	</form>
+			<%	
 
+			con.close();
+
+		//catch if there are any errors on user login
+		} catch (Exception e) {
+			out.print(e);
+			out.print("selection failed :()");
+		}
+	%>
 </body>
 </html>

@@ -68,12 +68,12 @@
 						if(adminResult.getBoolean("isAdmin")){
 							
 							session.setAttribute("isAdmin", true);
-							session.setAttribute("username", result.getString("username"));
+							session.setAttribute("username", adminResult.getString("username"));
 							response.sendRedirect("HomePage.jsp");
 						}
 						else{
 							session.setAttribute("isCRep", true);
-							session.setAttribute("username", result.getString("username"));
+							session.setAttribute("username", adminResult.getString("username"));
 							response.sendRedirect("HomePage.jsp");
 						}
 							
