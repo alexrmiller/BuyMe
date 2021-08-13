@@ -21,7 +21,7 @@
 		Statement stmt = con.createStatement();
 		userid
 		//Make an insert statement for the Sells table:
-		String ViewAlertsQuery = "SELECT a_interested FROM alert Where al_username=?";
+		String AlertsQuery = "SELECT a_interested FROM alert Where al_username=?";
 		
 		//Create a Prepared SQL statement allowing you to introduce the parameters of the query
 		PreparedStatement ps = con.prepareStatement(AlertsQuery);
