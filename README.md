@@ -10,8 +10,15 @@
 #   username:Admin
 #   email:admin@test.com
 #   password:adminpassword
+#   isAdmin:1
 #
-# Customer Representative Credentials (2 provided):
+# Customer Representative Credentials (1 provided):
+#   username:Soren
+#   email:sorenmorici@gmail.com
+#   password:gam171
+#   isAdmin: (NULL)
+#
+# User Credentials (2 provided):
 #   username:Soren
 #   password:gam170
 #   email:sorenmorici@gmail.com
