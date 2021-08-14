@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sign Up</title>
+<title>Items</title>
 </head>
 <body>
 	<%
@@ -19,40 +19,35 @@
 
 		//Create a SQL statement
 		Statement stmt = con.createStatement();
-
 		//Make an insert statement for the Sells table:
-		String CreateCRepQuery = "INSERT INTO admin(username, password, email) "
-				+ " VALUES (?, ?, ?)";
+		String itemQuery = "SELECT * FROM item Where Product_Name=%?%";
 		
 		//Create a Prepared SQL statement allowing you to introduce the parameters of the query
-		PreparedStatement ps = con.prepareStatement(CreateCRepQuery);
+		PreparedStatement ps = con.prepareStatement(itemQuery);
 
 		//Add parameters of the query. Start with 1, the 0-parameter is the INSERT statement itself
-		ps.setString(1, request.getParameter("Username"));
-		ps.setString(2, request.getParameter("Password"));
-		ps.setString(3, request.getParameter("Email"));
+		ps.setString(1, request.getParameter("Search"));
 		
 		//Run the query against the DB
-		ps.executeUpdate();
+		out.print(ps.executeQuery());
 		
 		//Close the connection. Don't forget to do it, otherwise you're keeping the resources of the server allocated.
 		con.close();
 		
-		out.print("insert succeeded");
+		out.print("Those are all our listed products containing: "+ request.getParameter("Search") + " in its name");
 		
 	} catch (Exception ex) {
 		out.print(ex);
-		out.print("insert failed");
+		out.print("Error viewing listed products");
 	}
 %>
-
 	<form action="HomePage.jsp">
 	<table>
 	<tr>
 	</tr>
 	<tr>
 	<td>
-	</select>&nbsp;<input type="submit" value="Home Page"> 
+	</select>&nbsp;<input type="submit" value="Return to Main Menu"> 
 	</td>
 	</tr>
 	</table>

@@ -19,12 +19,32 @@
             ApplicationDB db = new ApplicationDB();	
 		        Connection con = db.getConnection();
             Statement stmt = con.createStatement();
-            String query = "SELECT Product_Name, iditem FROM category, item WHERE iditem = id, type = ?";
+            String query = "SELECT Product_Name, iditem FROM item WHERE iditem IN (Select categoryid from category where type = ?)";
             PreparedStatement ps = con.prepareStatement(query);
+          	
             ps.setString(1, request.getParameter("Type"));
-            out.print(ps.executeUpdate());
+            ResultSet itemList = ps.executeQuery();
+            %>
+			<table>
+			<tr>
+			<td>
+			<h2>Items from Category <% request.getParameter("Type"); %></h2>
+			</td>
+			</tr>
+			<%while(itemList.next()){
+				%>
+				<tr>
+				<td>
+				<%out.print(itemList.getString("Product_Name") + " has ID of " + itemList.getString("Product_Name"));%>
+				</td>
+				</tr>
+				<%
+			}
+			%>
+			</table>
+			<%
             con.close();
-            out.print("End of search results");
+
         }
         catch (Exception e)
         {
@@ -33,7 +53,7 @@
 		}
         %>
 
-        <form method="get" action="Main.jsp">
+        <form method="get" action="HomePage.jsp">
             <input type="submit" value="Go Back to Main">
         </form>
 

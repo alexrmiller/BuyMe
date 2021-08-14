@@ -18,24 +18,21 @@
             ApplicationDB db = new ApplicationDB();	
 		    Connection con = db.getConnection();
             Statement stmt = con.createStatement();
-            String query = "UPDATE item SET Leaderboard = ? Auction_Leader = ? WHERE iditem = ?";
+            String query = "UPDATE item SET Leaderboard = ?, Auction_Leader = ? WHERE iditem = ?";
             PreparedStatement ps = con.prepareStatement(query);
 
             ps.setString(1, request.getParameter("Bid"));
-            ps.setString(2, (String) session.getAttribute("Username"));
+            ps.setString(2, (String) session.getAttribute("username"));
             ps.setString(3, request.getParameter("ID"));
 
             ps.executeUpdate();
-            con.close();
-
-            ApplicationDB db = new ApplicationDB();	
-		    Connection con = db.getConnection();
-            Statement stmt = con.createStatement();
-            String query = "INSERT INTO auction_history(i_iditem, i_username, bid) " + "VALUES(?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(query);
+         
+             stmt = con.createStatement();
+             query = "INSERT INTO auction_history(i_iditem, i_username, bid) " + "VALUES(?, ?, ?)";
+             ps = con.prepareStatement(query);
 
             ps.setString(1, request.getParameter("ID"));
-            ps.setString(2, (String) session.getAttribute("Username"));
+            ps.setString(2, (String) session.getAttribute("username"));
             ps.setString(3, request.getParameter("Bid"));
 
             ps.executeUpdate();
@@ -50,7 +47,7 @@
 		}
         %>
 
-        <form method="get" action="Main.jsp">
+        <form method="get" action="HomePage.jsp">
             <input type="submit" value="Go Back to Main">
         </form>
 

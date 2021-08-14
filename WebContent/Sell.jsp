@@ -25,32 +25,30 @@
             String id = String.valueOf(ThreadLocalRandom.current().nextInt());
             
             ps.setString(1, id);
-            ps.setString(2, (String) session.getAttribute("Username"));
+            ps.setString(2, (String)session.getAttribute("username"));
             ps.setString(3, request.getParameter("ProductName"));
             ps.setString(4, request.getParameter("MinPrice"));
-            ps.setString(5, (String) session.getAttribute("Username"));
+            ps.setString(5, (String)session.getAttribute("username"));
 
             ps.executeUpdate();
-            con.close();
+        
 
-            ApplicationDB db = new ApplicationDB();	
-		    Connection con = db.getConnection();
-            Statement stmt = con.createStatement();
-            String query = "INSERT INTO auction_history(i_iditem, i_username, bid) " + "VALUES(?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(query);
+            
+            stmt = con.createStatement();
+             query = "INSERT INTO auction_history(i_iditem, i_username, bid) " + "VALUES(?, ?, ?)";
+             ps = con.prepareStatement(query);
 
             ps.setString(1, id);
-            ps.setString(2, (String) session.getAttribute("Username"));
+            ps.setString(2, (String)session.getAttribute("username"));
             ps.setString(3, request.getParameter("MinPrice"));
 
             ps.executeUpdate();
-            con.close();
+            
 
-            ApplicationDB db = new ApplicationDB();	
-		    Connection con = db.getConnection();
-            Statement stmt = con.createStatement();
-            String query = "INSERT INTO category(type, id) " + "VALUES(?, ?)";
-            PreparedStatement ps = con.prepareStatement(query);
+            
+             stmt = con.createStatement();
+             query = "INSERT INTO category(type, categoryid) " + "VALUES(?, ?)";
+             ps = con.prepareStatement(query);
 
             ps.setString(1, request.getParameter("Type"));
             ps.setString(2, id);
@@ -67,7 +65,7 @@
 		}
         %>
 
-        <form method="get" action="Main.jsp">
+        <form method="get" action="HomePage.jsp">
             <input type="submit" value="Go Back to Main">
         </form>
 

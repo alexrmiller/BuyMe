@@ -8,24 +8,25 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>SignUp</title>
+		<title>Notifications</title>
 	</head>
 	
 	<body>
 	
-	<h2>Message Creation</h2>
-	<form method="post" action="MessageRepProcess.jsp">
-		<table>
-		<tr>
-		<td>
-		Question:
-		</td>
-		<td>
-		<input type="text" name="Question" required>
-		</td>
-		</tr>
-		</table>
-		</select>&nbsp;<br> <input type="submit" value="Ask Customer Rep"> 	
+	<h2>Notifications</h2>
+	<p>Check up on interested items</p>
+	<form method="get" action="NotificationProcess.jsp">
+	</form>
+	<form action="Main.jsp">
+	<table>
+	<tr>
+	</tr>
+	<tr>
+	<td>
+	</select>&nbsp;<input type="submit" value="Return to Main Menu"> 
+	</td>
+	</tr>
+	</table>
 	</form>
 </body>
 </html>
