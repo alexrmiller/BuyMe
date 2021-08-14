@@ -10,7 +10,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>BuyMe</title>
 	</head>
+	<body>
 	
+	<h2>Notifications</h2>
+	<p>Check up on interested items</p>
+	<form method="get" action="NotificationProcess.jsp">
+	</form>
+</body>
 	<body>
         <form method="get" action="Sell.jsp">
             <h4>Sell an Item!</h4>
