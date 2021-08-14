@@ -19,7 +19,7 @@
             ApplicationDB db = new ApplicationDB();	
 		        Connection con = db.getConnection();
             Statement stmt = con.createStatement();
-            String query = "INSERT INTO alert(al_username, a_interested) VALUES(?,?)";
+            String query = "INSERT INTO alert(al_username, a_interested)" + "VALUES(?,?)";
             PreparedStatement ps = con.prepareStatement(query);
             
           	ps.setString(1, (String)session.getAttribute("username"));
