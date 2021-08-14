@@ -39,15 +39,14 @@
 		</tr>
 		</table>
 		</form>
-	<p>type an integer of the highest bid you'd be willing to purchase</p>
-	<form method="get" name="frm1" action="HighestBidProcess.jsp" >
+	<form method="get" name="frm1" action="AuctionLeaderProcess.jsp" >
 		<table>
 		<tr>
 		<td>
 		Search:
 		</td>
 		<td>
-		<input type="text" name="Search with a Highest Bid">
+		<input type="text" name="Search with Auction Leader">
 		</td>
 		</tr>
 		</table>
