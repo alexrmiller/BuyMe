@@ -53,7 +53,7 @@
             con.close();
 	    
 	    stmt = con.createStatement();
-             query = "INSERT INTO alert(a_interested) VALUES(?) WHERE a_interested = ?";
+             query = "INSERT INTO usernotifications(Notification) VALUES(?) WHERE username = (SELECT al_username FROM alert WHERE a_interested = ?)";
              ps = con.prepareStatement(query);
 	    
 	    ps.setString(1, id);
