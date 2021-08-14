@@ -27,6 +27,19 @@
             <input type="submit" value="Sell">
         </form>
 
+        <form method="get" action="Bid.jsp">
+            <h4>Bid for an Item!</h4>
+            <input type="number" name="ID" placeholder="ID" required>
+            <input type="number" name="Bid" placeholder="Bid Amount" required>
+            <input type="submit" value="Bid">
+        </form>
+
+        <form method="get" action="AuctionHistory.jsp">
+            <h4>Item Auction History</h4>
+            <input type="number" name="ID" placeholder="ID" required>
+            <input type="submit" value="Look at History">
+        </form>
+
         <form method="get" action="Category.jsp">
             <h4>Find an Item!</h4>
             <input type="radio" name="Type" value="Art">
