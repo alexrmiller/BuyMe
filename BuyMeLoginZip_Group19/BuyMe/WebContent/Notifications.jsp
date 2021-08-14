@@ -16,16 +16,17 @@
 	<h2>Notifications</h2>
 	<p>Check up on interested items</p>
 	<form method="get" action="NotificationProcess.jsp">
- 	
 	</form>
-	<form action="Login.jsp">
-		<table>
-		<tr>
-		<td>
-		</select>&nbsp;<input type="submit" value="Back to Login"> 
-		</td>
-		</tr>
-		</table>
+	<form action="Main.jsp">
+	<table>
+	<tr>
+	</tr>
+	<tr>
+	<td>
+	</select>&nbsp;<input type="submit" value="Return to Main Menu"> 
+	</td>
+	</tr>
+	</table>
 	</form>
 </body>
 </html>
