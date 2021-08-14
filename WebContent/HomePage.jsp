@@ -151,6 +151,19 @@
             <label>Electronics</label>
             <input type="submit" value="Find">
         </form>
+
+	<h4>Send an Alert</h4>
+	<form method="get" action="Alert.jsp">
+            <h4>Find an Item!</h4>
+            <input type="radio" name="Type" value="Art">
+            <label>Art</label>
+            <input type="radio" name="Type" value="Cars">
+            <label>Cars</label>
+            <input type="radio" name="Type" value="Electronics">
+            <label>Electronics</label>
+            <input type="submit" value="Notify Me!">
+        </form>
+
 		
 		
 		<form  method="get" name="ViewNotifications" action="UserNotifications.jsp">
