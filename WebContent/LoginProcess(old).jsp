@@ -56,11 +56,6 @@
 			out.print("selection failed :()");
 		}
 	%>
-
-	<form method="get" action="Main.jsp">
-		<input type="submit" value="Go to Main Page">
-	</form>
-
 	<form action="Login.jsp">
 	<table>
 	<tr>

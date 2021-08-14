@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sign Up</title>
+<title>Notifications</title>
 </head>
 <body>
 	<%
@@ -19,42 +19,37 @@
 
 		//Create a SQL statement
 		Statement stmt = con.createStatement();
-
+		userid
 		//Make an insert statement for the Sells table:
-		String signUpQuery = "INSERT INTO users(Username, Password, Email, Address, CreditCard) "
-				+ " VALUES (?, ?, ?, ?, ?)";
+		String AlertsQuery = "SELECT a_interested FROM alert Where al_username=?";
 		
 		//Create a Prepared SQL statement allowing you to introduce the parameters of the query
-		PreparedStatement ps = con.prepareStatement(signUpQuery);
+		PreparedStatement ps = con.prepareStatement(AlertsQuery);
 
 		//Add parameters of the query. Start with 1, the 0-parameter is the INSERT statement itself
-		ps.setString(1, request.getParameter("Username"));
-		ps.setString(2, request.getParameter("Password"));
-		ps.setString(3, request.getParameter("Email"));
-		ps.setString(4, request.getParameter("Address"));
-		ps.setString(5, request.getParameter("CreditCard"));
+		ps.setString(1, userid);
 		
 		//Run the query against the DB
-		ps.executeUpdate();
+		out.print(ps.executeQuery());
 		
 		//Close the connection. Don't forget to do it, otherwise you're keeping the resources of the server allocated.
 		con.close();
 		
-		out.print("insert succeeded");
+		out.print("Your all caught Up!");
 		
 	} catch (Exception ex) {
 		out.print(ex);
-		out.print("insert failed");
+		out.print("Error viewing your notifications");
 	}
 %>
 
-	<form action="Login.jsp">
+	<form action="Main.jsp">
 	<table>
 	<tr>
 	</tr>
 	<tr>
 	<td>
-	</select>&nbsp;<input type="submit" value="Back to Login"> 
+	</select>&nbsp;<input type="submit" value="Return to Main Menu"> 
 	</td>
 	</tr>
 	</table>
