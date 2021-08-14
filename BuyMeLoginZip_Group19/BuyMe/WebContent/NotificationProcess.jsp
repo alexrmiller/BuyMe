@@ -43,13 +43,13 @@
 	}
 %>
 
-	<form action="Login.jsp">
+	<form action="Main.jsp">
 	<table>
 	<tr>
 	</tr>
 	<tr>
 	<td>
-	</select>&nbsp;<input type="submit" value="Back to Login"> 
+	</select>&nbsp;<input type="submit" value="Return to Main Menu"> 
 	</td>
 	</tr>
 	</table>
