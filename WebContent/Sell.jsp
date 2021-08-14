@@ -31,9 +31,7 @@
             ps.setString(5, (String)session.getAttribute("username"));
 
             ps.executeUpdate();
-        
-
-            
+       
             stmt = con.createStatement();
              query = "INSERT INTO auction_history(i_iditem, i_username, bid) " + "VALUES(?, ?, ?)";
              ps = con.prepareStatement(query);
@@ -43,9 +41,7 @@
             ps.setString(3, request.getParameter("MinPrice"));
 
             ps.executeUpdate();
-            
-
-            
+	    
              stmt = con.createStatement();
              query = "INSERT INTO category(type, categoryid) " + "VALUES(?, ?)";
              ps = con.prepareStatement(query);
@@ -53,6 +49,16 @@
             ps.setString(1, request.getParameter("Type"));
             ps.setString(2, id);
 
+            ps.executeUpdate();
+            con.close();
+	    
+	    stmt = con.createStatement();
+             query = "INSERT INTO alert(a_interested) VALUES(?) WHERE a_interested = ?";
+             ps = con.prepareStatement(query);
+	    
+	    ps.setString(1, id);
+            ps.setString(2, request.getParameter("Type"));
+            
             ps.executeUpdate();
             con.close();
 
