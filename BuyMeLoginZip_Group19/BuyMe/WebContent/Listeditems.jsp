@@ -15,14 +15,39 @@
 	<body>
 	<h2>Explore some products</h2>
 	<p>use the search bar to find the items available to bid</p>
-	<form method="get" name="frm1" action="ListeditemsProcess.jsp" >
+	<form method="get" name="frm1" action="ProductNameProcess.jsp" >
 		<table>
 		<tr>
 		<td>
 		Search:
 		</td>
 		<td>
-		<input type="text" name="Search">
+		<input type="text" name="Search with Product name">
+		</td>
+		</tr>
+		</table>
+		</form>
+	<form method="get" name="frm1" action="SellerNameProcess.jsp" >
+		<table>
+		<tr>
+		<td>
+		Search:
+		</td>
+		<td>
+		<input type="text" name="Search with Seller name">
+		</td>
+		</tr>
+		</table>
+		</form>
+	<p>type an integer of the highest bid you'd be willing to purchase</p>
+	<form method="get" name="frm1" action="HighestBidProcess.jsp" >
+		<table>
+		<tr>
+		<td>
+		Search:
+		</td>
+		<td>
+		<input type="text" name="Search with a Highest Bid">
 		</td>
 		</tr>
 		</table>
