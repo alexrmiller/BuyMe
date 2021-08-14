@@ -42,5 +42,16 @@
 		out.print("Error viewing listed products");
 	}
 %>
+	<form action="Main.jsp">
+	<table>
+	<tr>
+	</tr>
+	<tr>
+	<td>
+	</select>&nbsp;<input type="submit" value="Return to Main Menu"> 
+	</td>
+	</tr>
+	</table>
+	</form>
 </body>
 </html>
